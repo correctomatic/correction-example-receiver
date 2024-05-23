@@ -1,27 +1,12 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# Example of corrections receiver
 
+It provides an enpoint to receive corrections from the Correctomatic Systems. It will
+save the corrections to files in the `UPLOAD_DIR` directory and show them in the
+console.
 
-/correction/log: logs the correction to the console
-/correction/file: logs the correction to a file
+Start the receiver with `yarn start`
 
-## Available Scripts
+You can configure the port and the upload directory by setting the environment variables
+or by creating a `.env` file in the root of the project.
 
-In the project directory, you can run:
-
-### `npm run dev`
-
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm start`
-
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://fastify.dev/docs/latest/).
+With `LOG_LEVEL=warn` you will see only the corrections in the console.
