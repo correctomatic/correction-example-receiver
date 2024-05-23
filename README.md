@@ -1,6 +1,10 @@
 # Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
 This project was bootstrapped with Fastify-CLI.
 
+
+/correction/log: logs the correction to the console
+/correction/file: logs the correction to a file
+
 ## Available Scripts
 
 In the project directory, you can run:
