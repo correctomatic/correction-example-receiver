@@ -17,14 +17,20 @@ async function fileExists(path) {
 }
 
 function correctionMessage(data) {
+  let content
+
+  if (data.sucess) {
+    content = `Grade: ${data.grade}\n`
+    content += `Comments: ${data.comments.join('\n')}`
+  }
+  else content = `Failed to correct the work. Reason: ${data.error}`
+
   return `
 ********************************************
 **  Received a corrected work for review  **
 ********************************************
 Work ID: ${data.work_id}
-Grade: ${data.grade}
-Comments:
-${data.comments.join('\n')}
+${content}
 --------------------------------------------
   `
 }
@@ -33,8 +39,15 @@ async function routes(fastify, _options) {
 
   fastify.post('/log', async (request, reply) => {
     try {
-      const data = request.body
+      let data;
+
+      if (typeof request.body === 'string') {
+        data = JSON.parse(request.body);
+      } else {
+        data = request.body;
+      }
       const { work_id } = data
+      console.log(data)
 
       const message = correctionMessage(data)
 

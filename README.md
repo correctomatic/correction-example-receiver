@@ -1,6 +1,6 @@
 # Example of corrections receiver
 
-It provides an enpoint to receive corrections from the Correctomatic Systems. It will
+It provides an enpoint `/log` to receive corrections from the Correctomatic Systems. It will
 save the corrections to files in the `UPLOAD_DIR` directory and show them in the
 console.
 
