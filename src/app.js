@@ -1,7 +1,10 @@
-'use strict'
-
 import { join } from 'node:path'
 import AutoLoad from '@fastify/autoload'
+
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 // Pass --options via CLI arguments in command to enable these options.
 const options = {}
@@ -27,5 +30,4 @@ export default async function (fastify, opts) {
   })
 }
 
-const _options = options
-export { _options as options }
+export { options }
