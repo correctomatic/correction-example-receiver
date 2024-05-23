@@ -19,7 +19,7 @@ async function fileExists(path) {
 function correctionMessage(data) {
   let content
 
-  if (data.sucess) {
+  if (data.success) {
     content = `Grade: ${data.grade}\n`
     content += `Comments: ${data.comments.join('\n')}`
   }
@@ -47,7 +47,6 @@ async function routes(fastify, _options) {
         data = request.body;
       }
       const { work_id } = data
-      console.log(data)
 
       const message = correctionMessage(data)
 
@@ -59,7 +58,7 @@ async function routes(fastify, _options) {
       // Check if file already exists and generate a sequential file name
       let fileIndex = 1
       while (await fileExists(filePath)) {
-        fileName = `${baseFileName}_${fileIndex}.json`
+        fileName = `${baseFileName}_${fileIndex}.txt`
         filePath = join(uploadDir, fileName)
         fileIndex++
       }
