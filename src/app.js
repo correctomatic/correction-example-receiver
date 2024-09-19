@@ -23,8 +23,7 @@ fastify.register(AutoLoad, {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen({ port: env.port, host: '0.0.0.0' })
-    fastify.log.info(`Server listening on http://0.0.0.0:${env.port}`)
+    fastify.listen({ port: env.port, host: '0.0.0.0' })
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
