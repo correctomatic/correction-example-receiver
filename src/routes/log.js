@@ -46,6 +46,10 @@ async function routes(fastify, _options) {
       } else {
         data = request.body;
       }
+
+      // We can receive a work_id or not. If not, we'll use 'no_work_id'
+      data.work_id = data.work_id || 'no_work_id'
+
       const { work_id } = data
 
       const message = correctionMessage(data)
